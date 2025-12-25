@@ -1,0 +1,84 @@
+# Quarry Electron Builder Configuration
+# https://www.electron.build/configuration/configuration
+
+appId: com.framersai.quarry
+productName: Quarry
+copyright: Copyright © 2024 Johnny Dunn
+
+# Directories
+directories:
+  output: dist
+  buildResources: build
+
+# Files to include
+files:
+  - electron-dist/**/*
+  - out/**/*
+  - package.json
+
+# macOS Configuration
+mac:
+  category: public.app-category.productivity
+  icon: build/icon.icns
+  target:
+    - target: dmg
+      arch:
+        - universal
+    - target: zip
+      arch:
+        - universal
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+  darkModeSupport: true
+  # For unsigned builds, set identity to null
+  # identity: null
+
+dmg:
+  contents:
+    - x: 130
+      y: 220
+    - x: 410
+      y: 220
+      type: link
+      path: /Applications
+  window:
+    width: 540
+    height: 380
+
+# Windows Configuration
+win:
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch:
+        - x64
+        - arm64
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+
+# Linux Configuration
+linux:
+  icon: build/icons
+  target:
+    - target: AppImage
+      arch:
+        - x64
+        - arm64
+    - target: deb
+      arch:
+        - x64
+        - arm64
+  category: Office
+
+# Auto-update (disabled for community edition)
+publish: null
+
+# Extra metadata
+extraMetadata:
+  main: electron-dist/main.js

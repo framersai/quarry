@@ -1,0 +1,3127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   FRAME CODEX DESIGN SYSTEM
+   A refined, cohesive design language for knowledge exploration
+═══════════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    /* Core semantic colors */
+    --background: 0 0% 100%;
+    --foreground: 220 15% 15%;
+
+    --card: 0 0% 99%;
+    --card-foreground: 220 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 15% 25%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 173 80% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 160 84% 39%;
+
+    --radius: 0.625rem;
+    
+    /* FABRIC Codex Brand Colors */
+    --codex-emerald: 160 84% 39%;
+    --codex-cyan: 173 80% 40%;
+    --codex-amber: 38 92% 50%;
+    --codex-purple: 262 83% 58%;
+    
+    /* Sidebar specific */
+    --sidebar-bg: 220 14% 98%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-text: 220 15% 35%;
+    --sidebar-text-muted: 220 10% 55%;
+    --sidebar-accent: 160 84% 39%;
+    
+    /* Typography scale */
+    --font-size-2xs: 0.625rem;
+    --font-size-xs: 0.6875rem;
+    --font-size-sm: 0.75rem;
+    --font-size-base: 0.8125rem;
+    --font-size-lg: 0.875rem;
+    --font-size-xl: 1rem;
+    --font-size-2xl: 1.125rem;
+    
+    /* Spacing scale for compact UI */
+    --space-1: 0.125rem;
+    --space-2: 0.25rem;
+    --space-3: 0.375rem;
+    --space-4: 0.5rem;
+    --space-5: 0.625rem;
+    --space-6: 0.75rem;
+    --space-8: 1rem;
+    
+    /* Animation */
+    --transition-fast: 150ms;
+    --transition-normal: 250ms;
+    --transition-slow: 400ms;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-expo: cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  .dark {
+    --background: 220 20% 6%;
+    --foreground: 220 15% 95%;
+
+    --card: 220 20% 8%;
+    --card-foreground: 220 15% 95%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 220 15% 95%;
+
+    --primary: 160 84% 45%;
+    --primary-foreground: 220 20% 6%;
+
+    --secondary: 220 20% 15%;
+    --secondary-foreground: 220 15% 90%;
+
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 15% 60%;
+
+    --accent: 173 80% 45%;
+    --accent-foreground: 220 20% 6%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 220 15% 95%;
+
+    --border: 220 20% 18%;
+    --input: 220 20% 18%;
+    --ring: 160 84% 45%;
+    
+    /* Sidebar dark mode */
+    --sidebar-bg: 220 20% 7%;
+    --sidebar-border: 220 20% 15%;
+    --sidebar-text: 220 15% 85%;
+    --sidebar-text-muted: 220 15% 55%;
+    --sidebar-accent: 160 84% 50%;
+  }
+  
+  /* Sepia Light Theme - Vintage paper warmth */
+  .sepia-light,
+  [data-theme="sepia-light"] {
+    --background: 40 30% 97%;
+    --foreground: 30 10% 20%;
+
+    --card: 40 25% 95%;
+    --card-foreground: 30 10% 20%;
+
+    --popover: 40 30% 97%;
+    --popover-foreground: 30 10% 20%;
+
+    --primary: 30 60% 45%;
+    --primary-foreground: 40 30% 97%;
+
+    --secondary: 35 20% 90%;
+    --secondary-foreground: 30 10% 25%;
+
+    --muted: 35 15% 90%;
+    --muted-foreground: 30 10% 45%;
+
+    --accent: 30 60% 45%;
+    --accent-foreground: 40 30% 97%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 40 30% 97%;
+
+    --border: 35 20% 85%;
+    --input: 35 20% 90%;
+    --ring: 30 60% 45%;
+  }
+  
+  /* Sepia Dark Theme - Candlelit reading */
+  .sepia-dark,
+  [data-theme="sepia-dark"] {
+    --background: 20 30% 5%;
+    --foreground: 35 20% 85%;
+
+    --card: 20 25% 8%;
+    --card-foreground: 35 20% 85%;
+
+    --popover: 20 25% 10%;
+    --popover-foreground: 35 20% 85%;
+
+    --primary: 30 60% 55%;
+    --primary-foreground: 20 30% 5%;
+
+    --secondary: 25 20% 15%;
+    --secondary-foreground: 35 20% 85%;
+
+    --muted: 25 15% 15%;
+    --muted-foreground: 30 15% 60%;
+
+    --accent: 30 60% 55%;
+    --accent-foreground: 20 30% 5%;
+
+    --destructive: 0 60% 40%;
+    --destructive-foreground: 35 20% 85%;
+
+    --border: 25 20% 20%;
+    --input: 25 20% 18%;
+    --ring: 30 60% 55%;
+  }
+  
+  /* Terminal Light Theme - Retro amber CRT */
+  .terminal-light,
+  [data-theme="terminal-light"] {
+    --background: 0 0% 0%;
+    --foreground: 40 100% 50%;
+
+    --card: 0 0% 3%;
+    --card-foreground: 40 100% 50%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 40 100% 50%;
+
+    --primary: 40 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 40 90% 55%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 40 80% 45%;
+
+    --accent: 40 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 40 50% 20%;
+    --input: 0 0% 8%;
+    --ring: 40 100% 50%;
+  }
+  
+  /* Terminal Dark Theme - Hacker green */
+  .terminal-dark,
+  [data-theme="terminal-dark"] {
+    --background: 0 0% 0%;
+    --foreground: 120 100% 50%;
+
+    --card: 0 0% 3%;
+    --card-foreground: 120 100% 50%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 120 100% 50%;
+
+    --primary: 120 100% 50%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 120 90% 55%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 120 80% 35%;
+
+    --accent: 120 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 0%;
+
+    --border: 120 50% 15%;
+    --input: 0 0% 8%;
+    --ring: 120 100% 50%;
+  }
+  
+  /* ═══════════════════════════════════════════════════════════════════════════════
+     OCEANIC THEMES - Calm coastal and deep sea aesthetics
+     Inspired by ocean depths, coral reefs, and coastal horizons
+  ═══════════════════════════════════════════════════════════════════════════════ */
+  
+  /* Oceanic Light Theme - Calm coastal waters */
+  .oceanic-light,
+  [data-theme="oceanic-light"] {
+    --background: 200 100% 98%;
+    --foreground: 205 35% 20%;
+
+    --card: 200 60% 97%;
+    --card-foreground: 205 35% 20%;
+
+    --popover: 200 100% 98%;
+    --popover-foreground: 205 35% 20%;
+
+    --primary: 192 91% 36%;
+    --primary-foreground: 200 100% 98%;
+
+    --secondary: 200 40% 92%;
+    --secondary-foreground: 205 35% 25%;
+
+    --muted: 200 30% 92%;
+    --muted-foreground: 205 20% 45%;
+
+    --accent: 187 85% 43%;
+    --accent-foreground: 200 100% 98%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 200 100% 98%;
+
+    --border: 200 30% 85%;
+    --input: 200 30% 90%;
+    --ring: 192 91% 36%;
+    
+    /* Oceanic brand colors */
+    --codex-emerald: 172 66% 50%;
+    --codex-cyan: 187 85% 43%;
+    --codex-amber: 38 92% 50%;
+    --codex-purple: 220 70% 55%;
+    
+    /* Sidebar oceanic */
+    --sidebar-bg: 200 50% 97%;
+    --sidebar-border: 200 30% 88%;
+    --sidebar-text: 205 35% 30%;
+    --sidebar-text-muted: 205 20% 50%;
+    --sidebar-accent: 192 91% 36%;
+  }
+  
+  /* Oceanic Dark Theme - Deep sea abyss */
+  .oceanic-dark,
+  [data-theme="oceanic-dark"] {
+    --background: 210 50% 10%;
+    --foreground: 200 60% 90%;
+
+    --card: 210 45% 12%;
+    --card-foreground: 200 60% 90%;
+
+    --popover: 210 45% 14%;
+    --popover-foreground: 200 60% 90%;
+
+    --primary: 187 85% 53%;
+    --primary-foreground: 210 50% 10%;
+
+    --secondary: 210 40% 18%;
+    --secondary-foreground: 200 50% 85%;
+
+    --muted: 210 35% 18%;
+    --muted-foreground: 200 30% 55%;
+
+    --accent: 172 66% 50%;
+    --accent-foreground: 210 50% 10%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 200 60% 90%;
+
+    --border: 210 35% 22%;
+    --input: 210 35% 18%;
+    --ring: 187 85% 53%;
+    
+    /* Oceanic brand colors - brighter for dark mode */
+    --codex-emerald: 172 66% 55%;
+    --codex-cyan: 187 85% 53%;
+    --codex-amber: 38 92% 55%;
+    --codex-purple: 220 70% 65%;
+    
+    /* Sidebar oceanic dark */
+    --sidebar-bg: 210 45% 11%;
+    --sidebar-border: 210 35% 20%;
+    --sidebar-text: 200 50% 85%;
+    --sidebar-text-muted: 200 30% 55%;
+    --sidebar-accent: 187 85% 58%;
+  }
+}
+
+/* Sepia theme-specific styling */
+.sepia-light,
+[data-theme="sepia-light"] {
+  background-color: #FAF8F3;
+  color: #3D3631;
+}
+
+.sepia-dark,
+[data-theme="sepia-dark"] {
+  background-color: #0F0704;
+  color: #D4CAB9;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   OCEANIC THEMES - Visual Styling
+   Calm, flowing aesthetics inspired by ocean waves and depths
+═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Oceanic Light Theme - Coastal waters */
+.oceanic-light,
+[data-theme="oceanic-light"] {
+  background-color: #F0F9FF;
+  background-image: 
+    /* Subtle wave pattern */
+    radial-gradient(ellipse at 100% 0%, rgba(8, 145, 178, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 0% 100%, rgba(20, 184, 166, 0.05) 0%, transparent 50%);
+  color: #1E3A4F;
+}
+
+/* Oceanic Dark Theme - Deep abyss */
+.oceanic-dark,
+[data-theme="oceanic-dark"] {
+  background-color: #0C1929;
+  background-image: 
+    /* Deep ocean gradient */
+    radial-gradient(ellipse at 30% 0%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 100%, rgba(20, 184, 166, 0.06) 0%, transparent 50%),
+    /* Subtle bioluminescent particles */
+    radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.03) 0%, transparent 20%),
+    radial-gradient(circle at 80% 70%, rgba(45, 212, 191, 0.03) 0%, transparent 20%);
+  color: #E0F2FE;
+}
+
+/* Oceanic prose styling */
+.oceanic-light .prose,
+[data-theme="oceanic-light"] .prose {
+  --tw-prose-body: #1E3A4F;
+  --tw-prose-headings: #0C4A6E;
+  --tw-prose-links: #0891B2;
+  --tw-prose-bold: #0C4A6E;
+  --tw-prose-counters: #64748B;
+  --tw-prose-bullets: #64748B;
+  --tw-prose-hr: #CBD5E1;
+  --tw-prose-quotes: #334155;
+  --tw-prose-quote-borders: #0891B2;
+  --tw-prose-captions: #64748B;
+  --tw-prose-code: #1E3A4F;
+  --tw-prose-pre-code: #E0F2FE;
+  --tw-prose-pre-bg: #0C1929;
+  --tw-prose-th-borders: #CBD5E1;
+  --tw-prose-td-borders: #E2E8F0;
+}
+
+.oceanic-dark .prose,
+[data-theme="oceanic-dark"] .prose {
+  --tw-prose-body: #E0F2FE;
+  --tw-prose-headings: #F0F9FF;
+  --tw-prose-links: #22D3EE;
+  --tw-prose-bold: #F0F9FF;
+  --tw-prose-counters: #94A3B8;
+  --tw-prose-bullets: #94A3B8;
+  --tw-prose-hr: #334155;
+  --tw-prose-quotes: #BAE6FD;
+  --tw-prose-quote-borders: #06B6D4;
+  --tw-prose-captions: #94A3B8;
+  --tw-prose-code: #E0F2FE;
+  --tw-prose-pre-code: #E0F2FE;
+  --tw-prose-pre-bg: #0A141F;
+  --tw-prose-th-borders: #334155;
+  --tw-prose-td-borders: #1E293B;
+}
+
+/* Oceanic scrollbars */
+.oceanic-light ::-webkit-scrollbar-track,
+[data-theme="oceanic-light"] ::-webkit-scrollbar-track {
+  background: #E0F2FE;
+}
+
+.oceanic-light ::-webkit-scrollbar-thumb,
+[data-theme="oceanic-light"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #67E8F9 0%, #22D3EE 100%);
+  border-radius: 4px;
+}
+
+.oceanic-light ::-webkit-scrollbar-thumb:hover,
+[data-theme="oceanic-light"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #22D3EE 0%, #0891B2 100%);
+}
+
+.oceanic-dark ::-webkit-scrollbar-track,
+[data-theme="oceanic-dark"] ::-webkit-scrollbar-track {
+  background: #0A141F;
+}
+
+.oceanic-dark ::-webkit-scrollbar-thumb,
+[data-theme="oceanic-dark"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #155E75 0%, #164E63 100%);
+  border-radius: 4px;
+}
+
+.oceanic-dark ::-webkit-scrollbar-thumb:hover,
+[data-theme="oceanic-dark"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0891B2 0%, #155E75 100%);
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+}
+
+/* Oceanic selection */
+.oceanic-light ::selection,
+[data-theme="oceanic-light"] ::selection {
+  background: #22D3EE;
+  color: #0C1929;
+}
+
+.oceanic-dark ::selection,
+[data-theme="oceanic-dark"] ::selection {
+  background: #0891B2;
+  color: #F0F9FF;
+}
+
+/* Oceanic headings */
+.oceanic-light h1, .oceanic-light h2, .oceanic-light h3,
+[data-theme="oceanic-light"] h1, [data-theme="oceanic-light"] h2, [data-theme="oceanic-light"] h3 {
+  color: #0C4A6E;
+}
+
+.oceanic-dark h1, .oceanic-dark h2, .oceanic-dark h3,
+[data-theme="oceanic-dark"] h1, [data-theme="oceanic-dark"] h2, [data-theme="oceanic-dark"] h3 {
+  color: #F0F9FF;
+  text-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+}
+
+/* Oceanic links */
+.oceanic-light a, [data-theme="oceanic-light"] a {
+  color: #0891B2;
+  text-decoration-color: #67E8F9;
+  transition: all 0.15s ease;
+}
+
+.oceanic-light a:hover, [data-theme="oceanic-light"] a:hover {
+  color: #0E7490;
+  text-decoration-color: #0891B2;
+}
+
+.oceanic-dark a, [data-theme="oceanic-dark"] a {
+  color: #22D3EE;
+  text-decoration-color: #0891B2;
+  transition: all 0.15s ease;
+}
+
+.oceanic-dark a:hover, [data-theme="oceanic-dark"] a:hover {
+  color: #67E8F9;
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.4);
+}
+
+/* Oceanic cards & panels */
+.oceanic-light .card, .oceanic-light [class*="panel"],
+[data-theme="oceanic-light"] .card, [data-theme="oceanic-light"] [class*="panel"] {
+  background: rgba(240, 249, 255, 0.8);
+  border: 1px solid #BAE6FD;
+  box-shadow: 0 4px 20px rgba(8, 145, 178, 0.08);
+}
+
+.oceanic-dark .card, .oceanic-dark [class*="panel"],
+[data-theme="oceanic-dark"] .card, [data-theme="oceanic-dark"] [class*="panel"] {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #164E63;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(6, 182, 212, 0.05);
+}
+
+/* Oceanic inputs */
+.oceanic-light input, .oceanic-light textarea, .oceanic-light select,
+[data-theme="oceanic-light"] input, [data-theme="oceanic-light"] textarea, [data-theme="oceanic-light"] select {
+  background: #F8FDFF !important;
+  border: 1px solid #BAE6FD !important;
+  color: #1E3A4F !important;
+}
+
+.oceanic-light input:focus, .oceanic-light textarea:focus, .oceanic-light select:focus,
+[data-theme="oceanic-light"] input:focus, [data-theme="oceanic-light"] textarea:focus, [data-theme="oceanic-light"] select:focus {
+  border-color: #0891B2 !important;
+  box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.15);
+}
+
+.oceanic-dark input, .oceanic-dark textarea, .oceanic-dark select,
+[data-theme="oceanic-dark"] input, [data-theme="oceanic-dark"] textarea, [data-theme="oceanic-dark"] select {
+  background: #0A141F !important;
+  border: 1px solid #164E63 !important;
+  color: #E0F2FE !important;
+}
+
+.oceanic-dark input:focus, .oceanic-dark textarea:focus, .oceanic-dark select:focus,
+[data-theme="oceanic-dark"] input:focus, [data-theme="oceanic-dark"] textarea:focus, [data-theme="oceanic-dark"] select:focus {
+  border-color: #0891B2 !important;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+}
+
+/* Oceanic buttons */
+.oceanic-light button, .oceanic-light [role="button"],
+[data-theme="oceanic-light"] button, [data-theme="oceanic-light"] [role="button"] {
+  transition: all 0.15s ease;
+}
+
+.oceanic-light button:hover, .oceanic-light [role="button"]:hover,
+[data-theme="oceanic-light"] button:hover, [data-theme="oceanic-light"] [role="button"]:hover {
+  box-shadow: 0 4px 12px rgba(8, 145, 178, 0.2);
+}
+
+.oceanic-dark button, .oceanic-dark [role="button"],
+[data-theme="oceanic-dark"] button, [data-theme="oceanic-dark"] [role="button"] {
+  transition: all 0.15s ease;
+}
+
+.oceanic-dark button:hover, .oceanic-dark [role="button"]:hover,
+[data-theme="oceanic-dark"] button:hover, [data-theme="oceanic-dark"] [role="button"]:hover {
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.25);
+}
+
+/* Default dark theme prose styling - improved contrast */
+.dark .prose,
+[data-theme="dark"] .prose {
+  --tw-prose-body: #e4e4e7;
+  --tw-prose-headings: #fafafa;
+  --tw-prose-links: #34d399;
+  --tw-prose-bold: #fafafa;
+  --tw-prose-counters: #a1a1aa;
+  --tw-prose-bullets: #a1a1aa;
+  --tw-prose-hr: #3f3f46;
+  --tw-prose-quotes: #d4d4d8;
+  --tw-prose-quote-borders: #34d399;
+  --tw-prose-captions: #a1a1aa;
+  --tw-prose-code: #e4e4e7;
+  --tw-prose-pre-code: #e4e4e7;
+  --tw-prose-pre-bg: #18181b;
+  --tw-prose-th-borders: #3f3f46;
+  --tw-prose-td-borders: #27272a;
+}
+
+/* Sepia theme prose styling */
+.sepia-light .prose,
+[data-theme="sepia-light"] .prose {
+  --tw-prose-body: #4A443D;
+  --tw-prose-headings: #2E2923;
+  --tw-prose-links: #996633;
+  --tw-prose-bold: #2E2923;
+  --tw-prose-counters: #7A6F63;
+  --tw-prose-bullets: #7A6F63;
+  --tw-prose-hr: #D4CAB9;
+  --tw-prose-quotes: #5A4F44;
+  --tw-prose-quote-borders: #D4A574;
+  --tw-prose-captions: #7A6F63;
+  --tw-prose-code: #5A4F44;
+  --tw-prose-pre-code: #F5F0E8;
+  --tw-prose-pre-bg: #3D3631;
+  --tw-prose-th-borders: #D4CAB9;
+  --tw-prose-td-borders: #E8E2D6;
+}
+
+.sepia-dark .prose,
+[data-theme="sepia-dark"] .prose {
+  --tw-prose-body: #C4B9A8;
+  --tw-prose-headings: #E8DFD1;
+  --tw-prose-links: #D4A574;
+  --tw-prose-bold: #E8DFD1;
+  --tw-prose-counters: #8A7F73;
+  --tw-prose-bullets: #8A7F73;
+  --tw-prose-hr: #3D3631;
+  --tw-prose-quotes: #D4CAB9;
+  --tw-prose-quote-borders: #D4A574;
+  --tw-prose-captions: #8A7F73;
+  --tw-prose-code: #D4CAB9;
+  --tw-prose-pre-code: #F5F0E8;
+  --tw-prose-pre-bg: #1A120C;
+  --tw-prose-th-borders: #3D3631;
+  --tw-prose-td-borders: #2A211A;
+}
+
+/* Sepia scrollbars */
+.sepia-light ::-webkit-scrollbar-track,
+[data-theme="sepia-light"] ::-webkit-scrollbar-track {
+  background: #F0EBE3;
+}
+
+.sepia-light ::-webkit-scrollbar-thumb,
+[data-theme="sepia-light"] ::-webkit-scrollbar-thumb {
+  background: #D4CAB9;
+}
+
+.sepia-dark ::-webkit-scrollbar-track,
+[data-theme="sepia-dark"] ::-webkit-scrollbar-track {
+  background: #1A120C;
+}
+
+.sepia-dark ::-webkit-scrollbar-thumb,
+[data-theme="sepia-dark"] ::-webkit-scrollbar-thumb {
+  background: #3D3631;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   TERMINAL THEMES - Analog CRT Aesthetics
+   Premium retro-futuristic design with maximum readability
+   Inspired by vintage mainframe terminals, modernized for elite experience
+═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Terminal Light Theme (Amber) - Warm analog CRT */
+.terminal-light,
+[data-theme="terminal-light"] {
+  /* Deep obsidian black background for maximum contrast */
+  background-color: #0A0A08;
+  background-image: 
+    /* Subtle scanline texture for depth */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 176, 0, 0.015) 2px,
+      rgba(255, 176, 0, 0.015) 4px
+    ),
+    /* Subtle radial vignette */
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  
+  /* Premium amber phosphor glow */
+  color: #FFB800;
+  
+  /* Elite monospace typography */
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  
+  /* Text rendering for crisp edges */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Terminal Dark Theme (Green) - Classic phosphor display */
+.terminal-dark,
+[data-theme="terminal-dark"] {
+  /* Pure void black */
+  background-color: #050805;
+  background-image: 
+    /* Subtle scanline texture */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 65, 0.012) 2px,
+      rgba(0, 255, 65, 0.012) 4px
+    ),
+    /* Subtle radial vignette for CRT depth */
+    radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.35) 100%);
+  
+  /* High-contrast phosphor green */
+  color: #00FF41;
+  
+  /* Elite monospace typography */
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', 'SF Mono', 'Consolas', monospace;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  
+  /* Text rendering for crisp edges */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Terminal Amber - Typography & Prose */
+.terminal-light .prose,
+[data-theme="terminal-light"] .prose {
+  /* Maximum contrast amber palette */
+  --tw-prose-body: #FFB800;
+  --tw-prose-headings: #FFDD00;
+  --tw-prose-links: #FFE566;
+  --tw-prose-bold: #FFDD00;
+  --tw-prose-counters: #CC9400;
+  --tw-prose-bullets: #CC9400;
+  --tw-prose-hr: #4A3800;
+  --tw-prose-quotes: #FFD000;
+  --tw-prose-quote-borders: #FFB800;
+  --tw-prose-captions: #B38600;
+  --tw-prose-code: #FFDD00;
+  --tw-prose-pre-code: #FFB800;
+  --tw-prose-pre-bg: #0D0D08;
+  --tw-prose-th-borders: #4A3800;
+  --tw-prose-td-borders: #2E2300;
+  
+  /* Enhanced typography */
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* Terminal Green - Typography & Prose */
+.terminal-dark .prose,
+[data-theme="terminal-dark"] .prose {
+  /* High-contrast phosphor green palette */
+  --tw-prose-body: #00FF41;
+  --tw-prose-headings: #00FF88;
+  --tw-prose-links: #88FF88;
+  --tw-prose-bold: #00FF88;
+  --tw-prose-counters: #00CC33;
+  --tw-prose-bullets: #00CC33;
+  --tw-prose-hr: #003D10;
+  --tw-prose-quotes: #00EE44;
+  --tw-prose-quote-borders: #00FF41;
+  --tw-prose-captions: #00AA2A;
+  --tw-prose-code: #00FF88;
+  --tw-prose-pre-code: #00FF41;
+  --tw-prose-pre-bg: #050D07;
+  --tw-prose-th-borders: #003D10;
+  --tw-prose-td-borders: #002608;
+  
+  /* Enhanced typography */
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* Terminal Headings - Bold statement typography */
+.terminal-light h1, .terminal-light h2, .terminal-light h3,
+[data-theme="terminal-light"] h1, [data-theme="terminal-light"] h2, [data-theme="terminal-light"] h3 {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(255, 184, 0, 0.4), 0 0 40px rgba(255, 184, 0, 0.2);
+}
+
+.terminal-dark h1, .terminal-dark h2, .terminal-dark h3,
+[data-theme="terminal-dark"] h1, [data-theme="terminal-dark"] h2, [data-theme="terminal-dark"] h3 {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(0, 255, 65, 0.4), 0 0 40px rgba(0, 255, 65, 0.2);
+}
+
+/* Terminal Links - Distinctive interaction */
+.terminal-light a, [data-theme="terminal-light"] a {
+  color: #FFE566;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: all 0.15s ease;
+}
+
+.terminal-light a:hover, [data-theme="terminal-light"] a:hover {
+  color: #FFFF88;
+  text-shadow: 0 0 8px rgba(255, 229, 102, 0.6);
+}
+
+.terminal-dark a, [data-theme="terminal-dark"] a {
+  color: #88FF88;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: all 0.15s ease;
+}
+
+.terminal-dark a:hover, [data-theme="terminal-dark"] a:hover {
+  color: #AAFFAA;
+  text-shadow: 0 0 8px rgba(136, 255, 136, 0.6);
+}
+
+/* Terminal Code Blocks - Elite syntax display */
+.terminal-light pre, .terminal-light code,
+[data-theme="terminal-light"] pre, [data-theme="terminal-light"] code {
+  background: #0D0D08 !important;
+  border: 1px solid #3D3000 !important;
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+}
+
+.terminal-dark pre, .terminal-dark code,
+[data-theme="terminal-dark"] pre, [data-theme="terminal-dark"] code {
+  background: #050D07 !important;
+  border: 1px solid #003D10 !important;
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+}
+
+/* Terminal Buttons - Tactile analog controls */
+.terminal-light button, .terminal-light [role="button"],
+[data-theme="terminal-light"] button, [data-theme="terminal-light"] [role="button"] {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-width: 2px;
+  transition: all 0.1s ease;
+}
+
+.terminal-light button:hover, .terminal-light [role="button"]:hover,
+[data-theme="terminal-light"] button:hover, [data-theme="terminal-light"] [role="button"]:hover {
+  box-shadow: 0 0 15px rgba(255, 184, 0, 0.4), inset 0 0 10px rgba(255, 184, 0, 0.1);
+}
+
+.terminal-dark button, .terminal-dark [role="button"],
+[data-theme="terminal-dark"] button, [data-theme="terminal-dark"] [role="button"] {
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-width: 2px;
+  transition: all 0.1s ease;
+}
+
+.terminal-dark button:hover, .terminal-dark [role="button"]:hover,
+[data-theme="terminal-dark"] button:hover, [data-theme="terminal-dark"] [role="button"]:hover {
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.4), inset 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+/* Terminal Input Fields - Clean analog controls */
+.terminal-light input, .terminal-light textarea, .terminal-light select,
+[data-theme="terminal-light"] input, [data-theme="terminal-light"] textarea, [data-theme="terminal-light"] select {
+  background: #0A0A08 !important;
+  border: 1px solid #4A3800 !important;
+  color: #FFB800 !important;
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  caret-color: #FFB800;
+}
+
+.terminal-light input:focus, .terminal-light textarea:focus, .terminal-light select:focus,
+[data-theme="terminal-light"] input:focus, [data-theme="terminal-light"] textarea:focus, [data-theme="terminal-light"] select:focus {
+  border-color: #FFB800 !important;
+  box-shadow: 0 0 10px rgba(255, 184, 0, 0.3);
+  outline: none;
+}
+
+.terminal-dark input, .terminal-dark textarea, .terminal-dark select,
+[data-theme="terminal-dark"] input, [data-theme="terminal-dark"] textarea, [data-theme="terminal-dark"] select {
+  background: #050805 !important;
+  border: 1px solid #003D10 !important;
+  color: #00FF41 !important;
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  caret-color: #00FF41;
+}
+
+.terminal-dark input:focus, .terminal-dark textarea:focus, .terminal-dark select:focus,
+[data-theme="terminal-dark"] input:focus, [data-theme="terminal-dark"] textarea:focus, [data-theme="terminal-dark"] select:focus {
+  border-color: #00FF41 !important;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+  outline: none;
+}
+
+/* Terminal Cards & Panels - Depth hierarchy */
+.terminal-light .card, .terminal-light [class*="panel"], .terminal-light [class*="modal"],
+[data-theme="terminal-light"] .card, [data-theme="terminal-light"] [class*="panel"], [data-theme="terminal-light"] [class*="modal"] {
+  background: #0D0D08;
+  border: 1px solid #3D3000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 184, 0, 0.05);
+}
+
+.terminal-dark .card, .terminal-dark [class*="panel"], .terminal-dark [class*="modal"],
+[data-theme="terminal-dark"] .card, [data-theme="terminal-dark"] [class*="panel"], [data-theme="terminal-dark"] [class*="modal"] {
+  background: #050D07;
+  border: 1px solid #003D10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(0, 255, 65, 0.05);
+}
+
+/* Terminal Selection - High contrast highlight */
+.terminal-light ::selection,
+[data-theme="terminal-light"] ::selection {
+  background: #FFB800;
+  color: #0A0A08;
+}
+
+.terminal-dark ::selection,
+[data-theme="terminal-dark"] ::selection {
+  background: #00FF41;
+  color: #050805;
+}
+
+/* Terminal Scrollbars - Premium analog controls */
+.terminal-light ::-webkit-scrollbar,
+[data-theme="terminal-light"] ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.terminal-light ::-webkit-scrollbar-track,
+[data-theme="terminal-light"] ::-webkit-scrollbar-track {
+  background: #0D0D08;
+  border: 1px solid #3D3000;
+}
+
+.terminal-light ::-webkit-scrollbar-thumb,
+[data-theme="terminal-light"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6B4800 0%, #4A3000 100%);
+  border: 1px solid #8B6000;
+  border-radius: 2px;
+}
+
+.terminal-light ::-webkit-scrollbar-thumb:hover,
+[data-theme="terminal-light"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #8B6000 0%, #6B4800 100%);
+  box-shadow: 0 0 8px rgba(255, 184, 0, 0.4);
+}
+
+.terminal-dark ::-webkit-scrollbar,
+[data-theme="terminal-dark"] ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.terminal-dark ::-webkit-scrollbar-track,
+[data-theme="terminal-dark"] ::-webkit-scrollbar-track {
+  background: #050D07;
+  border: 1px solid #003D10;
+}
+
+.terminal-dark ::-webkit-scrollbar-thumb,
+[data-theme="terminal-dark"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #005520 0%, #003D10 100%);
+  border: 1px solid #007030;
+  border-radius: 2px;
+}
+
+.terminal-dark ::-webkit-scrollbar-thumb:hover,
+[data-theme="terminal-dark"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #007030 0%, #005520 100%);
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+}
+
+/* CRT scanline effect for terminal themes */
+.terminal-light,
+.terminal-dark,
+[data-theme="terminal-light"],
+[data-theme="terminal-dark"] {
+  position: relative;
+}
+
+.terminal-light::before,
+.terminal-dark::before,
+[data-theme="terminal-light"]::before,
+[data-theme="terminal-dark"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  z-index: 9999;
+}
+
+/* Text glow effect for terminal themes */
+.terminal-light,
+.terminal-light *,
+[data-theme="terminal-light"],
+[data-theme="terminal-light"] * {
+  text-shadow: 0 0 5px rgba(255, 170, 0, 0.5);
+}
+
+.terminal-dark,
+.terminal-dark *,
+[data-theme="terminal-dark"],
+[data-theme="terminal-dark"] * {
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+/* Mobile optimizations - prevent accidental zoom */
+@layer utilities {
+  .touch-pan-y {
+    touch-action: pan-y;
+  }
+  
+  .touch-pan-x {
+    touch-action: pan-x;
+  }
+  
+  .touch-pinch-zoom {
+    touch-action: pinch-zoom;
+  }
+  
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+
+  /* ─────────────────────────────────────────────────────────────────────────────
+     TOUCH TARGET UTILITIES
+     Ensure interactive elements meet WCAG AAA guidelines (44-48px minimum)
+  ───────────────────────────────────────────────────────────────────────────── */
+
+  /* Standard touch target (44px - iOS/Android minimum) */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Large touch target (48px - Material Design recommended) */
+  .touch-target-lg {
+    @apply min-h-[48px] min-w-[48px];
+  }
+
+  /* Extra large touch target (56px - FAB size) */
+  .touch-target-xl {
+    @apply min-h-[56px] min-w-[56px];
+  }
+
+  /* Touch-friendly padding for inline elements */
+  .touch-padding {
+    @apply px-3 py-2.5;
+  }
+
+  .touch-padding-lg {
+    @apply px-4 py-3;
+  }
+
+  /* Safe area padding utilities for notched devices */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  .pl-safe {
+    padding-left: env(safe-area-inset-left, 0);
+  }
+
+  .pr-safe {
+    padding-right: env(safe-area-inset-right, 0);
+  }
+
+  .p-safe {
+    padding-top: env(safe-area-inset-top, 0);
+    padding-right: env(safe-area-inset-right, 0);
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    padding-left: env(safe-area-inset-left, 0);
+  }
+
+  /* Margin safe area utilities */
+  .mt-safe {
+    margin-top: env(safe-area-inset-top, 0);
+  }
+
+  .mb-safe {
+    margin-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  /* Inset safe area for absolute/fixed positioning */
+  .inset-safe {
+    top: env(safe-area-inset-top, 0);
+    right: env(safe-area-inset-right, 0);
+    bottom: env(safe-area-inset-bottom, 0);
+    left: env(safe-area-inset-left, 0);
+  }
+
+  .bottom-safe {
+    bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  /* Prevent text selection on touch elements */
+  .no-select {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  /* Tap highlight removal for iOS */
+  .no-tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Combined touch-friendly button utility */
+  .touch-button {
+    @apply min-h-[44px] min-w-[44px] px-3 py-2.5;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .touch-button-lg {
+    @apply min-h-[48px] min-w-[48px] px-4 py-3;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Landscape mode optimizations for mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  /* Compact headers in landscape */
+  .codex-header {
+    @apply py-1 text-sm;
+  }
+  
+  /* Reduce padding in panels */
+  .codex-panel {
+    @apply p-2;
+  }
+  
+  /* Smaller font sizes */
+  .codex-content {
+    @apply text-sm leading-relaxed;
+  }
+  
+  /* Hide less critical UI elements */
+  .landscape-hide {
+    @apply hidden;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 767px) {
+  /* Ensure interactive elements have adequate touch targets (WCAG AAA) */
+  button:not(.no-min-size),
+  a:not(.no-min-size),
+  input[type="checkbox"],
+  input[type="radio"],
+  select {
+    min-height: 44px;
+  }
+  
+  /* Compact spacing on mobile */
+  .codex-sidebar {
+    @apply px-2;
+  }
+  
+  .codex-metadata-panel {
+    @apply px-3 py-2;
+  }
+  
+  /* Larger tap targets for navigation */
+  .tree-node {
+    @apply py-3;
+  }
+  
+  /* Hide decorative elements on small screens */
+  .mobile-hide {
+    @apply hidden;
+  }
+  
+  /* Stack layouts vertically */
+  .mobile-stack {
+    @apply flex-col;
+  }
+  
+  /* Improved text sizing for mobile */
+  .codex-content h1 {
+    @apply text-2xl;
+  }
+  
+  .codex-content h2 {
+    @apply text-xl;
+  }
+  
+  .codex-content h3 {
+    @apply text-lg;
+  }
+  
+  .codex-content p,
+  .codex-content li {
+    @apply text-sm leading-relaxed;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .codex-sidebar {
+    max-width: 280px;
+  }
+  
+  .codex-metadata-panel {
+    max-width: 300px;
+  }
+}
+
+
+/* Ultra-compact mode for very small screens (< 360px) */
+@media (max-width: 359px) {
+  .codex-panel {
+    @apply px-2 py-1 text-xs;
+  }
+  
+  .codex-header {
+    @apply text-sm;
+  }
+}
+
+/* Prevent text selection during pan/zoom */
+.touch-pan-y,
+.touch-pan-x,
+.touch-pinch-zoom {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection in content areas */
+.codex-content,
+.codex-editor {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Override touch-pan-y user-select:none for prose content */
+.codex-content-scroll .prose,
+.codex-content-scroll article,
+.codex-content-scroll p,
+.codex-content-scroll h1,
+.codex-content-scroll h2,
+.codex-content-scroll h3,
+.codex-content-scroll h4,
+.codex-content-scroll h5,
+.codex-content-scroll h6,
+.codex-content-scroll li,
+.codex-content-scroll blockquote,
+.codex-content-scroll pre,
+.codex-content-scroll code {
+  -webkit-user-select: text !important;
+  user-select: text !important;
+}
+
+/* ===== Inline WYSIWYG Editor Code Block Styling ===== */
+
+/* Full-width code blocks in inline editor */
+.inline-wysiwyg-editor pre {
+  max-width: calc(100% + 2rem);
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  background: #1e1e1e;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.inline-wysiwyg-editor pre code {
+  background: transparent;
+  padding: 0;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', 'Monaco', monospace;
+}
+
+/* Light mode code blocks */
+@media (prefers-color-scheme: light) {
+  .inline-wysiwyg-editor:not(.dark) pre {
+    background: #f8f9fa;
+  }
+}
+
+/* One Dark Pro syntax highlighting theme */
+.hljs {
+  color: #abb2bf;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula {
+  color: #c678dd;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst {
+  color: #e06c75;
+}
+
+.hljs-literal {
+  color: #56b6c2;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string {
+  color: #98c379;
+}
+
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number {
+  color: #d19a66;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta,
+.hljs-selector-id,
+.hljs-title {
+  color: #61aeee;
+}
+
+.hljs-built_in,
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: #e6c07b;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-link {
+  text-decoration: underline;
+}
+
+/* Clickable blocks in inline editor */
+.inline-wysiwyg-editor [data-block-id] {
+  cursor: pointer;
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dynamic viewport height for mobile browsers */
+@supports (height: 100dvh) {
+  .h-screen {
+    height: 100dvh;
+  }
+}
+
+/* Safe area insets for notched devices */
+.safe-area-inset-left {
+  padding-left: env(safe-area-inset-left, 0);
+}
+
+.safe-area-inset-right {
+  padding-right: env(safe-area-inset-right, 0);
+}
+
+.safe-area-inset-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.safe-area-inset-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+/* Theme transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Disable transitions for elements that shouldn't animate */
+.no-transition,
+input,
+textarea,
+select,
+button:active {
+  transition: none !important;
+}
+
+/* Prevent overscroll bounce on iOS */
+body {
+  overscroll-behavior-y: none;
+}
+
+/* Custom scrollbar for better mobile experience */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-600;
+  }
+}
+
+/* Hide scrollbar on mobile for cleaner look */
+@media (max-width: 767px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-400/50 dark:bg-gray-600/50;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   NEUMORPHIC SHADOWS
+   Premium soft UI shadows for light, dark, and sepia modes
+═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Light mode neumorphic shadows */
+.shadow-neu {
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.08),
+    -6px -6px 12px rgba(255, 255, 255, 0.9);
+}
+
+.shadow-neu-sm {
+  box-shadow: 
+    3px 3px 6px rgba(0, 0, 0, 0.06),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+}
+
+.shadow-neu-lg {
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.1),
+    -10px -10px 20px rgba(255, 255, 255, 0.95);
+}
+
+.shadow-inner-neu {
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.06),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.7);
+}
+
+/* Dark mode neumorphic shadows */
+.dark .shadow-neu,
+.shadow-neu-dark {
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.4),
+    -6px -6px 12px rgba(255, 255, 255, 0.03);
+}
+
+.dark .shadow-neu-sm,
+.shadow-neu-dark-sm {
+  box-shadow: 
+    3px 3px 6px rgba(0, 0, 0, 0.3),
+    -3px -3px 6px rgba(255, 255, 255, 0.02);
+}
+
+.dark .shadow-neu-lg,
+.shadow-neu-dark-lg {
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.5),
+    -10px -10px 20px rgba(255, 255, 255, 0.04);
+}
+
+.dark .shadow-inner-neu,
+.shadow-inner-neu-dark {
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.3),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.02);
+}
+
+/* Sepia mode neumorphic shadows */
+.sepia-light .shadow-neu,
+.sepia-dark .shadow-neu,
+.shadow-neu-sepia {
+  box-shadow: 
+    6px 6px 12px rgba(120, 80, 40, 0.12),
+    -6px -6px 12px rgba(255, 250, 240, 0.8);
+}
+
+.sepia-light .shadow-neu-sm,
+.sepia-dark .shadow-neu-sm,
+.shadow-neu-sepia-sm {
+  box-shadow: 
+    3px 3px 6px rgba(120, 80, 40, 0.1),
+    -3px -3px 6px rgba(255, 250, 240, 0.7);
+}
+
+.sepia-light .shadow-neu-lg,
+.sepia-dark .shadow-neu-lg,
+.shadow-neu-sepia-lg {
+  box-shadow: 
+    10px 10px 20px rgba(120, 80, 40, 0.15),
+    -10px -10px 20px rgba(255, 250, 240, 0.9);
+}
+
+.sepia-light .shadow-inner-neu,
+.sepia-dark .shadow-inner-neu,
+.shadow-inner-neu-sepia {
+  box-shadow: 
+    inset 4px 4px 8px rgba(120, 80, 40, 0.1),
+    inset -4px -4px 8px rgba(255, 250, 240, 0.5);
+}
+
+/* Sepia dark adjustments */
+.sepia-dark .shadow-neu,
+.sepia-dark .shadow-neu-sepia {
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.3),
+    -6px -6px 12px rgba(80, 60, 40, 0.15);
+}
+
+.sepia-dark .shadow-neu-lg,
+.sepia-dark .shadow-neu-sepia-lg {
+  box-shadow: 
+    10px 10px 20px rgba(0, 0, 0, 0.4),
+    -10px -10px 20px rgba(80, 60, 40, 0.2);
+}
+
+/* Perspective for 3D transforms */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   FRAME CODEX LOGO TYPOGRAPHY
+   Premium brand typography for the FABRIC Codex wordmark
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.codex-logo-frame {
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-family: var(--font-fraunces), 'Fraunces', Georgia, serif;
+}
+
+.codex-logo-codex {
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, 
+    hsl(var(--codex-emerald)) 0%, 
+    hsl(var(--codex-cyan)) 50%, 
+    hsl(var(--codex-emerald)) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: codex-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes codex-shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Static version for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .codex-logo-codex {
+    animation: none;
+    background-position: 0% center;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SIDEBAR COLLAPSE ANIMATIONS
+   Smooth, refined animations for sidebar toggle
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.sidebar-collapse-icon {
+  transition: transform var(--transition-normal) var(--ease-out-expo);
+}
+
+.sidebar-collapsed .sidebar-collapse-icon {
+  transform: rotate(180deg);
+}
+
+/* Sidebar slide animation */
+.sidebar-container {
+  transition: 
+    transform var(--transition-slow) var(--ease-out-expo),
+    width var(--transition-slow) var(--ease-out-expo),
+    opacity var(--transition-normal) ease-out;
+}
+
+.sidebar-collapsed .sidebar-container {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+/* Content area expansion */
+.content-area {
+  transition: margin-left var(--transition-slow) var(--ease-out-expo);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   REFINED BUTTON STYLES
+   Consistent, accessible button styling across the app
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-1.5;
+  @apply px-2 py-1.5 rounded-lg;
+  @apply text-xs font-medium;
+  @apply transition-all duration-150;
+  @apply hover:bg-zinc-100 dark:hover:bg-zinc-800;
+  @apply active:scale-95;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  @apply focus-visible:ring-emerald-500;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-1.5;
+  @apply px-3 py-1.5 rounded-lg;
+  @apply text-xs font-semibold;
+  @apply bg-gradient-to-r from-emerald-600 to-cyan-600;
+  @apply text-white shadow-md;
+  @apply transition-all duration-150;
+  @apply hover:from-emerald-500 hover:to-cyan-500 hover:shadow-lg;
+  @apply active:scale-95;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  @apply focus-visible:ring-emerald-500;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-1.5;
+  @apply px-3 py-1.5 rounded-lg;
+  @apply text-xs font-medium;
+  @apply bg-zinc-100 dark:bg-zinc-800;
+  @apply text-zinc-700 dark:text-zinc-300;
+  @apply border border-zinc-200 dark:border-zinc-700;
+  @apply transition-all duration-150;
+  @apply hover:bg-zinc-200 dark:hover:bg-zinc-700;
+  @apply active:scale-95;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  @apply focus-visible:ring-zinc-400;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SLEEK NAV DROPDOWN
+   Refined dropdown menus for condensed navigation
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.nav-dropdown {
+  @apply absolute top-full left-0 mt-1;
+  @apply min-w-[180px] py-1;
+  @apply bg-white dark:bg-zinc-900;
+  @apply border border-zinc-200 dark:border-zinc-700;
+  @apply rounded-xl shadow-xl;
+  @apply opacity-0 invisible scale-95;
+  @apply transition-all duration-150 ease-out;
+  @apply origin-top-left;
+  z-index: 9999;
+}
+
+.nav-dropdown-trigger:hover .nav-dropdown,
+.nav-dropdown-trigger:focus-within .nav-dropdown {
+  @apply opacity-100 visible scale-100;
+}
+
+.nav-dropdown-item {
+  @apply flex items-center gap-2;
+  @apply px-3 py-2 text-xs;
+  @apply text-zinc-700 dark:text-zinc-300;
+  @apply hover:bg-zinc-100 dark:hover:bg-zinc-800;
+  @apply transition-colors duration-100;
+}
+
+.nav-dropdown-item svg {
+  @apply w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400;
+}
+
+.nav-dropdown-divider {
+  @apply my-1 border-t border-zinc-200 dark:border-zinc-700;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MODAL ACCESSIBILITY
+   Click-outside and escape key support styling
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.modal-backdrop {
+  @apply fixed inset-0;
+  @apply bg-black/60 backdrop-blur-sm;
+  z-index: 9998;
+}
+
+.modal-container {
+  @apply fixed inset-0 flex items-center justify-center p-4;
+  z-index: 9999;
+}
+
+.modal-content {
+  @apply relative w-full max-h-[90vh] overflow-auto;
+  @apply bg-white dark:bg-zinc-900;
+  @apply rounded-2xl shadow-2xl;
+  animation: modal-enter 0.2s ease-out;
+}
+
+.modal-content[data-closing] {
+  animation: modal-exit 0.15s ease-in forwards;
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modal-exit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SPLIT EDITOR LAYOUT
+   Two-pane editor with vertical/horizontal split options
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.editor-split-horizontal {
+  @apply flex flex-row h-full;
+}
+
+.editor-split-vertical {
+  @apply flex flex-col h-full;
+}
+
+.editor-pane {
+  @apply flex-1 min-w-0 min-h-0 overflow-hidden;
+}
+
+.editor-divider {
+  @apply flex-shrink-0 bg-zinc-200 dark:bg-zinc-700;
+  @apply hover:bg-emerald-400 dark:hover:bg-emerald-600;
+  @apply transition-colors duration-150;
+  @apply cursor-col-resize;
+}
+
+.editor-split-horizontal .editor-divider {
+  @apply w-1 hover:w-1.5;
+}
+
+.editor-split-vertical .editor-divider {
+  @apply h-1 hover:h-1.5;
+  @apply cursor-row-resize;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   METADATA PANEL ANIMATIONS
+   Smooth slide-in/out for right metadata panel
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.metadata-panel {
+  @apply transition-all duration-300;
+  transition-timing-function: var(--ease-out-expo);
+}
+
+.metadata-panel-enter {
+  @apply opacity-0;
+  transform: translateX(100%);
+}
+
+.metadata-panel-enter-active {
+  @apply opacity-100;
+  transform: translateX(0);
+}
+
+.metadata-panel-exit {
+  @apply opacity-100;
+  transform: translateX(0);
+}
+
+.metadata-panel-exit-active {
+  @apply opacity-0;
+  transform: translateX(100%);
+}
+
+/* Mobile slide-up variant */
+@media (max-width: 767px) {
+  .metadata-panel-enter {
+    transform: translateY(100%);
+  }
+  
+  .metadata-panel-enter-active {
+    transform: translateY(0);
+  }
+  
+  .metadata-panel-exit-active {
+    transform: translateY(100%);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   COMPACT TREE NODE STYLING
+   Ultra-compact but readable tree node styles
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.tree-node {
+  @apply flex items-center gap-1;
+  @apply px-1.5 py-0.5 rounded;
+  @apply text-xs font-medium;
+  @apply transition-all duration-100;
+  @apply cursor-pointer select-none;
+  min-height: 24px;
+}
+
+.tree-node:hover {
+  @apply bg-zinc-100 dark:bg-zinc-800;
+}
+
+.tree-node.active {
+  @apply bg-emerald-100 dark:bg-emerald-900/40;
+  @apply text-emerald-800 dark:text-emerald-200;
+}
+
+.tree-node-icon {
+  @apply w-3 h-3 flex-shrink-0;
+  @apply transition-transform duration-150;
+}
+
+.tree-node-icon.expanded {
+  transform: rotate(90deg);
+}
+
+.tree-node-label {
+  @apply flex-1 truncate;
+  @apply text-zinc-700 dark:text-zinc-300;
+}
+
+.tree-node-badge {
+  @apply text-[9px] font-bold;
+  @apply px-1 py-0.5 rounded;
+  @apply bg-zinc-200 dark:bg-zinc-700;
+  @apply text-zinc-600 dark:text-zinc-400;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   COMPREHENSIVE SCROLLBAR DESIGN SYSTEM
+   Beautiful, minimal, sleek, and vibrant scrollbars for all themes
+═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CSS Custom Properties for Scrollbar Theming
+───────────────────────────────────────────────────────────────────────────── */
+:root {
+  --scrollbar-width: 8px;
+  --scrollbar-width-thin: 6px;
+  --scrollbar-track-bg: transparent;
+  --scrollbar-thumb-bg: rgba(161, 161, 170, 0.5);
+  --scrollbar-thumb-hover: rgba(113, 113, 122, 0.7);
+  --scrollbar-thumb-active: rgba(82, 82, 91, 0.9);
+  --scrollbar-radius: 9999px;
+  --scrollbar-accent: 160 84% 45%;
+  --scrollbar-glow: rgba(16, 185, 129, 0);
+}
+
+.dark {
+  --scrollbar-thumb-bg: rgba(113, 113, 122, 0.4);
+  --scrollbar-thumb-hover: rgba(161, 161, 170, 0.6);
+  --scrollbar-thumb-active: rgba(212, 212, 216, 0.7);
+  --scrollbar-glow: rgba(16, 185, 129, 0.15);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Global Default Scrollbar - Beautiful & Minimal
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-bg) var(--scrollbar-track-bg);
+}
+
+/* WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-bg);
+  border-radius: var(--scrollbar-radius);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg);
+  border-radius: var(--scrollbar-radius);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--scrollbar-thumb-active);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Scrollbar Variants - Utility Classes
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Thin scrollbar for compact spaces */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb-bg) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: var(--scrollbar-width-thin);
+  height: var(--scrollbar-width-thin);
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg);
+  border-radius: var(--scrollbar-radius);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Vibrant Accent Scrollbars - For special areas
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Emerald/Green accent - For main content areas */
+.scrollbar-emerald::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.5) 0%,
+    rgba(5, 150, 105, 0.6) 100%
+  );
+}
+
+.scrollbar-emerald::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.7) 0%,
+    rgba(5, 150, 105, 0.8) 100%
+  );
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Cyan accent - For code/editor areas */
+.scrollbar-cyan::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    rgba(6, 182, 212, 0.5) 0%,
+    rgba(8, 145, 178, 0.6) 100%
+  );
+}
+
+.scrollbar-cyan::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(6, 182, 212, 0.7) 0%,
+    rgba(8, 145, 178, 0.8) 100%
+  );
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+}
+
+/* Purple accent - For sidebar/navigation */
+.scrollbar-purple::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    rgba(139, 92, 246, 0.5) 0%,
+    rgba(109, 40, 217, 0.6) 100%
+  );
+}
+
+.scrollbar-purple::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(139, 92, 246, 0.7) 0%,
+    rgba(109, 40, 217, 0.8) 100%
+  );
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.3);
+}
+
+/* Amber accent - For warnings/looms */
+.scrollbar-amber::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    rgba(245, 158, 11, 0.5) 0%,
+    rgba(217, 119, 6, 0.6) 100%
+  );
+}
+
+.scrollbar-amber::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(245, 158, 11, 0.7) 0%,
+    rgba(217, 119, 6, 0.8) 100%
+  );
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Sidebar-Specific Scrollbar - Sleek & Compact
+───────────────────────────────────────────────────────────────────────────── */
+
+.sidebar-scroll,
+.codex-sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(161, 161, 170, 0.3) transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar,
+.codex-sidebar-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track,
+.codex-sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px 0;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb,
+.codex-sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.3);
+  border-radius: 9999px;
+  transition: background 0.15s ease;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover,
+.codex-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.5) 0%,
+    rgba(6, 182, 212, 0.5) 100%
+  );
+}
+
+.dark .sidebar-scroll::-webkit-scrollbar-thumb,
+.dark .codex-sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(113, 113, 122, 0.3);
+}
+
+.dark .sidebar-scroll::-webkit-scrollbar-thumb:hover,
+.dark .codex-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.6) 0%,
+    rgba(6, 182, 212, 0.6) 100%
+  );
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Tree View Scrollbar - For react-arborist trees
+───────────────────────────────────────────────────────────────────────────── */
+
+.tree-scroll,
+[data-testid="tree-container"],
+.react-arborist-container {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.3) transparent;
+}
+
+.tree-scroll::-webkit-scrollbar,
+[data-testid="tree-container"]::-webkit-scrollbar,
+.react-arborist-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.tree-scroll::-webkit-scrollbar-track,
+[data-testid="tree-container"]::-webkit-scrollbar-track,
+.react-arborist-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 9999px;
+}
+
+.tree-scroll::-webkit-scrollbar-thumb,
+[data-testid="tree-container"]::-webkit-scrollbar-thumb,
+.react-arborist-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    rgba(139, 92, 246, 0.35) 0%,
+    rgba(16, 185, 129, 0.35) 100%
+  );
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.tree-scroll::-webkit-scrollbar-thumb:hover,
+[data-testid="tree-container"]::-webkit-scrollbar-thumb:hover,
+.react-arborist-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(139, 92, 246, 0.6) 0%,
+    rgba(16, 185, 129, 0.6) 100%
+  );
+  box-shadow: 0 0 6px rgba(139, 92, 246, 0.2);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Code Block / Editor Scrollbar - Sleek cyan
+───────────────────────────────────────────────────────────────────────────── */
+
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar,
+.code-scroll::-webkit-scrollbar,
+.editor-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track,
+code::-webkit-scrollbar-track,
+.code-scroll::-webkit-scrollbar-track,
+.editor-scroll::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb,
+code::-webkit-scrollbar-thumb,
+.code-scroll::-webkit-scrollbar-thumb,
+.editor-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    rgba(6, 182, 212, 0.4) 0%,
+    rgba(14, 165, 233, 0.5) 100%
+  );
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+pre::-webkit-scrollbar-thumb:hover,
+code::-webkit-scrollbar-thumb:hover,
+.code-scroll::-webkit-scrollbar-thumb:hover,
+.editor-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(6, 182, 212, 0.6) 0%,
+    rgba(14, 165, 233, 0.7) 100%
+  );
+}
+
+.dark pre::-webkit-scrollbar-track,
+.dark code::-webkit-scrollbar-track,
+.dark .code-scroll::-webkit-scrollbar-track,
+.dark .editor-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Modal / Dialog Scrollbar - Clean and subtle
+───────────────────────────────────────────────────────────────────────────── */
+
+.modal-scroll::-webkit-scrollbar,
+[role="dialog"]::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-scroll::-webkit-scrollbar-track,
+[role="dialog"]::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 8px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb,
+[role="dialog"]::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.35);
+  border-radius: 9999px;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb:hover,
+[role="dialog"]::-webkit-scrollbar-thumb:hover {
+  background: rgba(161, 161, 170, 0.55);
+}
+
+.dark .modal-scroll::-webkit-scrollbar-thumb,
+.dark [role="dialog"]::-webkit-scrollbar-thumb {
+  background: rgba(113, 113, 122, 0.35);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Auto-hide Scrollbar - Shows on hover/scroll
+───────────────────────────────────────────────────────────────────────────── */
+
+.scrollbar-auto-hide::-webkit-scrollbar-thumb {
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.scrollbar-auto-hide:hover::-webkit-scrollbar-thumb,
+.scrollbar-auto-hide:focus-within::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-bg);
+}
+
+.scrollbar-auto-hide:hover::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Gutter/Margin Scrollbar - Extra slim for tight spaces
+───────────────────────────────────────────────────────────────────────────── */
+
+.scrollbar-gutter::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-gutter::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.25);
+  border-radius: 9999px;
+}
+
+.scrollbar-gutter::-webkit-scrollbar-thumb:hover {
+  background: rgba(161, 161, 170, 0.45);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Content Area Scrollbar - Main reading area with emerald accent
+───────────────────────────────────────────────────────────────────────────── */
+
+.codex-content-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(16, 185, 129, 0.25) transparent;
+}
+
+.codex-content-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.codex-content-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 2px 0;
+}
+
+.codex-content-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.25) 0%,
+    rgba(6, 182, 212, 0.25) 100%
+  );
+  border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.2s ease;
+}
+
+.codex-content-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.45) 0%,
+    rgba(6, 182, 212, 0.45) 100%
+  );
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+}
+
+.codex-content-scroll::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.6) 0%,
+    rgba(6, 182, 212, 0.6) 100%
+  );
+}
+
+.dark .codex-content-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.2) 0%,
+    rgba(6, 182, 212, 0.2) 100%
+  );
+}
+
+.dark .codex-content-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.4) 0%,
+    rgba(6, 182, 212, 0.4) 100%
+  );
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Textarea / Input Scrollbar - For form inputs
+───────────────────────────────────────────────────────────────────────────── */
+
+textarea::-webkit-scrollbar {
+  width: 6px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  margin: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.35);
+  border-radius: 9999px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(161, 161, 170, 0.55);
+}
+
+.dark textarea::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.dark textarea::-webkit-scrollbar-thumb {
+  background: rgba(113, 113, 122, 0.35);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Dropdown/Select Scrollbar - For dropdown menus
+───────────────────────────────────────────────────────────────────────────── */
+
+[role="listbox"]::-webkit-scrollbar,
+[role="menu"]::-webkit-scrollbar,
+.dropdown-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+[role="listbox"]::-webkit-scrollbar-track,
+[role="menu"]::-webkit-scrollbar-track,
+.dropdown-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[role="listbox"]::-webkit-scrollbar-thumb,
+[role="menu"]::-webkit-scrollbar-thumb,
+.dropdown-scroll::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.4);
+  border-radius: 9999px;
+}
+
+[role="listbox"]::-webkit-scrollbar-thumb:hover,
+[role="menu"]::-webkit-scrollbar-thumb:hover,
+.dropdown-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Legacy scrollbar classes - for components using these names
+───────────────────────────────────────────────────────────────────────────── */
+
+.scrollbar-light::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-light::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-light::-webkit-scrollbar-thumb {
+  background: rgba(161, 161, 170, 0.3);
+  border-radius: 9999px;
+}
+
+.scrollbar-light::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.4) 0%,
+    rgba(139, 92, 246, 0.4) 100%
+  );
+}
+
+.scrollbar-dark::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  background: rgba(113, 113, 122, 0.3);
+  border-radius: 9999px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(16, 185, 129, 0.5) 0%,
+    rgba(139, 92, 246, 0.5) 100%
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   RADIAL MENU FOR NOTE ATTACHMENT
+   Circular menu for quick actions
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.radial-menu {
+  @apply fixed;
+  @apply bg-white/95 dark:bg-zinc-900/95;
+  @apply backdrop-blur-lg;
+  @apply rounded-full shadow-2xl;
+  @apply border border-zinc-200 dark:border-zinc-700;
+  @apply p-1;
+  z-index: 9999;
+}
+
+.radial-menu-item {
+  @apply absolute;
+  @apply w-10 h-10;
+  @apply flex items-center justify-center;
+  @apply rounded-full;
+  @apply bg-white dark:bg-zinc-800;
+  @apply border border-zinc-200 dark:border-zinc-700;
+  @apply shadow-md;
+  @apply transition-all duration-200;
+  @apply hover:scale-110 hover:shadow-lg;
+  @apply active:scale-95;
+}
+
+.radial-menu-item svg {
+  @apply w-4 h-4;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SUGGESTED QUESTIONS STYLING
+   Dynamic question cards for document navigation
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.question-card {
+  @apply p-3 rounded-xl;
+  @apply bg-gradient-to-r from-purple-50 to-cyan-50;
+  @apply dark:from-purple-900/20 dark:to-cyan-900/20;
+  @apply border border-purple-200/50 dark:border-purple-700/30;
+  @apply transition-all duration-150;
+  @apply cursor-pointer;
+}
+
+.question-card:hover {
+  @apply shadow-md;
+  @apply border-purple-300 dark:border-purple-600/50;
+  @apply scale-[1.01];
+}
+
+.question-card-icon {
+  @apply w-4 h-4 text-purple-500 dark:text-purple-400;
+}
+
+.question-card-text {
+  @apply text-xs text-purple-900 dark:text-purple-100;
+  @apply line-clamp-2;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   INLINE EDIT INDICATOR
+   Visual feedback for editable fields
+═══════════════════════════════════════════════════════════════════════════════ */
+
+.inline-editable {
+  @apply relative;
+  @apply transition-all duration-150;
+}
+
+.inline-editable:hover::after {
+  @apply content-[''];
+  @apply absolute inset-0;
+  @apply rounded-lg;
+  @apply border-2 border-dashed border-cyan-400/50;
+  @apply pointer-events-none;
+}
+
+.inline-editable:focus-within::after {
+  @apply border-solid border-cyan-500;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MOBILE IMPROVEMENTS
+   Prevent iOS zoom on input focus and improve touch interactions
+═══════════════════════════════════════════════════════════════════════════════ */
+
+@layer base {
+  /* Prevent iOS Safari from zooming on input focus - ensure 16px minimum */
+  @media screen and (max-width: 767px) {
+    input[type="text"],
+    input[type="search"],
+    input[type="email"],
+    input[type="password"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="number"],
+    textarea,
+    select {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Improve touch interactions */
+  @media (hover: none) and (pointer: coarse) {
+    /* Ensure minimum touch targets */
+    button, 
+    a, 
+    [role="button"],
+    input[type="checkbox"],
+    input[type="radio"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Disable hover effects on touch devices to prevent sticky states */
+    .no-touch-hover:hover {
+      background-color: inherit;
+    }
+  }
+
+  /* Prevent text selection on interactive elements */
+  button,
+  [role="button"],
+  .touch-manipulation {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Smooth scrolling for mobile */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Fix for iOS momentum scrolling */
+  .scroll-container {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+}
+
+/* Sidebar mobile improvements */
+@media screen and (max-width: 767px) {
+  .codex-sidebar {
+    /* Prevent accidental horizontal scroll */
+    overflow-x: hidden;
+    /* Smooth vertical scroll */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+  
+  /* Larger touch targets in sidebar */
+  .codex-sidebar button,
+  .codex-sidebar a {
+    min-height: 44px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   SYNTAX HIGHLIGHTING (lowlight/highlight.js)
+   Theme-aware code syntax highlighting for code blocks
+═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Reset prose code block backgrounds - our custom CodeBlock handles this */
+.prose pre,
+.prose code,
+[class*="prose"] pre,
+[class*="prose"] code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Ensure our code block wrapper takes precedence */
+[data-block-type="code"] pre,
+[data-block-type="code"] code {
+  background: transparent !important;
+}
+
+/* Light mode code block container - explicit white/light backgrounds */
+:root:not(.dark) [data-block-type="code"],
+.light [data-block-type="code"],
+[data-theme="light"] [data-block-type="code"] {
+  background-color: #f6f8fa !important;
+  border-color: #e1e4e8 !important;
+}
+
+:root:not(.dark) pre:not([class*="terminal"]),
+.light pre:not([class*="terminal"]),
+[data-theme="light"] pre:not([class*="terminal"]) {
+  background-color: #f6f8fa !important;
+  color: #24292e !important;
+}
+
+/* Base code block styling */
+.hljs {
+  color: #24292e;
+  background: transparent;
+}
+
+/* Light mode syntax colors (GitHub-inspired) */
+.hljs-comment,
+.hljs-quote {
+  color: #6a737d;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #d73a49;
+  font-weight: 500;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #032f62;
+}
+
+.hljs-number,
+.hljs-regexp,
+.hljs-meta {
+  color: #005cc5;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #6f42c1;
+}
+
+.hljs-function .hljs-keyword {
+  color: #d73a49;
+}
+
+.hljs-function .hljs-title {
+  color: #6f42c1;
+}
+
+.hljs-class .hljs-title {
+  color: #6f42c1;
+}
+
+.hljs-attr,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #22863a;
+}
+
+.hljs-tag {
+  color: #22863a;
+}
+
+.hljs-tag .hljs-name {
+  color: #22863a;
+}
+
+.hljs-tag .hljs-attr {
+  color: #6f42c1;
+}
+
+.hljs-deletion {
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+.hljs-addition {
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* Dark mode syntax colors (GitHub Dark) */
+.dark .hljs {
+  color: #e1e4e8;
+}
+
+.dark .hljs-comment,
+.dark .hljs-quote {
+  color: #6a737d;
+}
+
+.dark .hljs-keyword,
+.dark .hljs-selector-tag,
+.dark .hljs-literal,
+.dark .hljs-section,
+.dark .hljs-link {
+  color: #f97583;
+}
+
+.dark .hljs-string,
+.dark .hljs-title,
+.dark .hljs-name,
+.dark .hljs-type,
+.dark .hljs-attribute,
+.dark .hljs-symbol,
+.dark .hljs-bullet,
+.dark .hljs-variable,
+.dark .hljs-template-tag,
+.dark .hljs-template-variable {
+  color: #9ecbff;
+}
+
+.dark .hljs-number,
+.dark .hljs-regexp,
+.dark .hljs-meta {
+  color: #79b8ff;
+}
+
+.dark .hljs-built_in,
+.dark .hljs-builtin-name {
+  color: #b392f0;
+}
+
+.dark .hljs-function .hljs-keyword {
+  color: #f97583;
+}
+
+.dark .hljs-function .hljs-title {
+  color: #b392f0;
+}
+
+.dark .hljs-class .hljs-title {
+  color: #b392f0;
+}
+
+.dark .hljs-attr,
+.dark .hljs-selector-id,
+.dark .hljs-selector-class,
+.dark .hljs-selector-attr,
+.dark .hljs-selector-pseudo {
+  color: #85e89d;
+}
+
+.dark .hljs-tag {
+  color: #85e89d;
+}
+
+.dark .hljs-tag .hljs-name {
+  color: #85e89d;
+}
+
+.dark .hljs-tag .hljs-attr {
+  color: #b392f0;
+}
+
+.dark .hljs-deletion {
+  color: #fdaeb7;
+  background-color: #86181d;
+}
+
+.dark .hljs-addition {
+  color: #85e89d;
+  background-color: #144620;
+}
+
+/* Sepia light mode syntax colors (warm tones) */
+.sepia-light .hljs,
+[data-theme="sepia-light"] .hljs {
+  color: #4a443d;
+}
+
+.sepia-light .hljs-comment,
+.sepia-light .hljs-quote,
+[data-theme="sepia-light"] .hljs-comment,
+[data-theme="sepia-light"] .hljs-quote {
+  color: #8a7f73;
+  font-style: italic;
+}
+
+.sepia-light .hljs-keyword,
+.sepia-light .hljs-selector-tag,
+.sepia-light .hljs-literal,
+[data-theme="sepia-light"] .hljs-keyword,
+[data-theme="sepia-light"] .hljs-selector-tag,
+[data-theme="sepia-light"] .hljs-literal {
+  color: #9b4d2a;
+}
+
+.sepia-light .hljs-string,
+.sepia-light .hljs-title,
+.sepia-light .hljs-name,
+.sepia-light .hljs-type,
+[data-theme="sepia-light"] .hljs-string,
+[data-theme="sepia-light"] .hljs-title,
+[data-theme="sepia-light"] .hljs-name,
+[data-theme="sepia-light"] .hljs-type {
+  color: #1a5f3d;
+}
+
+.sepia-light .hljs-number,
+.sepia-light .hljs-regexp,
+[data-theme="sepia-light"] .hljs-number,
+[data-theme="sepia-light"] .hljs-regexp {
+  color: #996633;
+}
+
+.sepia-light .hljs-built_in,
+.sepia-light .hljs-builtin-name,
+[data-theme="sepia-light"] .hljs-built_in,
+[data-theme="sepia-light"] .hljs-builtin-name {
+  color: #6b4d8a;
+}
+
+/* Sepia dark mode syntax colors */
+.sepia-dark .hljs,
+[data-theme="sepia-dark"] .hljs {
+  color: #d4cab9;
+}
+
+.sepia-dark .hljs-comment,
+.sepia-dark .hljs-quote,
+[data-theme="sepia-dark"] .hljs-comment,
+[data-theme="sepia-dark"] .hljs-quote {
+  color: #8a7f73;
+  font-style: italic;
+}
+
+.sepia-dark .hljs-keyword,
+.sepia-dark .hljs-selector-tag,
+.sepia-dark .hljs-literal,
+[data-theme="sepia-dark"] .hljs-keyword,
+[data-theme="sepia-dark"] .hljs-selector-tag,
+[data-theme="sepia-dark"] .hljs-literal {
+  color: #d4a574;
+}
+
+.sepia-dark .hljs-string,
+.sepia-dark .hljs-title,
+.sepia-dark .hljs-name,
+.sepia-dark .hljs-type,
+[data-theme="sepia-dark"] .hljs-string,
+[data-theme="sepia-dark"] .hljs-title,
+[data-theme="sepia-dark"] .hljs-name,
+[data-theme="sepia-dark"] .hljs-type {
+  color: #8fbc8f;
+}
+
+.sepia-dark .hljs-number,
+.sepia-dark .hljs-regexp,
+[data-theme="sepia-dark"] .hljs-number,
+[data-theme="sepia-dark"] .hljs-regexp {
+  color: #daa520;
+}
+
+.sepia-dark .hljs-built_in,
+.sepia-dark .hljs-builtin-name,
+[data-theme="sepia-dark"] .hljs-built_in,
+[data-theme="sepia-dark"] .hljs-builtin-name {
+  color: #c9a0dc;
+}
+
+/* Terminal light (amber) syntax colors */
+.terminal-light .hljs,
+[data-theme="terminal-light"] .hljs {
+  color: #ffb800;
+}
+
+.terminal-light .hljs-comment,
+.terminal-light .hljs-quote,
+[data-theme="terminal-light"] .hljs-comment,
+[data-theme="terminal-light"] .hljs-quote {
+  color: #997700;
+  font-style: italic;
+}
+
+.terminal-light .hljs-keyword,
+.terminal-light .hljs-selector-tag,
+.terminal-light .hljs-literal,
+[data-theme="terminal-light"] .hljs-keyword,
+[data-theme="terminal-light"] .hljs-selector-tag,
+[data-theme="terminal-light"] .hljs-literal {
+  color: #ffdd00;
+  font-weight: bold;
+}
+
+.terminal-light .hljs-string,
+.terminal-light .hljs-title,
+.terminal-light .hljs-name,
+.terminal-light .hljs-type,
+[data-theme="terminal-light"] .hljs-string,
+[data-theme="terminal-light"] .hljs-title,
+[data-theme="terminal-light"] .hljs-name,
+[data-theme="terminal-light"] .hljs-type {
+  color: #ffcc00;
+}
+
+.terminal-light .hljs-number,
+.terminal-light .hljs-regexp,
+[data-theme="terminal-light"] .hljs-number,
+[data-theme="terminal-light"] .hljs-regexp {
+  color: #ff9900;
+}
+
+.terminal-light .hljs-built_in,
+.terminal-light .hljs-builtin-name,
+[data-theme="terminal-light"] .hljs-built_in,
+[data-theme="terminal-light"] .hljs-builtin-name {
+  color: #ffe066;
+}
+
+/* Terminal dark (green) syntax colors */
+.terminal-dark .hljs,
+[data-theme="terminal-dark"] .hljs {
+  color: #00ff41;
+}
+
+.terminal-dark .hljs-comment,
+.terminal-dark .hljs-quote,
+[data-theme="terminal-dark"] .hljs-comment,
+[data-theme="terminal-dark"] .hljs-quote {
+  color: #00aa2a;
+  font-style: italic;
+}
+
+.terminal-dark .hljs-keyword,
+.terminal-dark .hljs-selector-tag,
+.terminal-dark .hljs-literal,
+[data-theme="terminal-dark"] .hljs-keyword,
+[data-theme="terminal-dark"] .hljs-selector-tag,
+[data-theme="terminal-dark"] .hljs-literal {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.terminal-dark .hljs-string,
+.terminal-dark .hljs-title,
+.terminal-dark .hljs-name,
+.terminal-dark .hljs-type,
+[data-theme="terminal-dark"] .hljs-string,
+[data-theme="terminal-dark"] .hljs-title,
+[data-theme="terminal-dark"] .hljs-name,
+[data-theme="terminal-dark"] .hljs-type {
+  color: #88ff88;
+}
+
+.terminal-dark .hljs-number,
+.terminal-dark .hljs-regexp,
+[data-theme="terminal-dark"] .hljs-number,
+[data-theme="terminal-dark"] .hljs-regexp {
+  color: #00ee44;
+}
+
+.terminal-dark .hljs-built_in,
+.terminal-dark .hljs-builtin-name,
+[data-theme="terminal-dark"] .hljs-built_in,
+[data-theme="terminal-dark"] .hljs-builtin-name {
+  color: #aaffaa;
+}
+
+/* Oceanic Light syntax colors */
+.oceanic-light .hljs,
+[data-theme="oceanic-light"] .hljs {
+  color: #1e3a4f;
+}
+
+.oceanic-light .hljs-comment,
+.oceanic-light .hljs-quote,
+[data-theme="oceanic-light"] .hljs-comment,
+[data-theme="oceanic-light"] .hljs-quote {
+  color: #64748b;
+  font-style: italic;
+}
+
+.oceanic-light .hljs-keyword,
+.oceanic-light .hljs-selector-tag,
+.oceanic-light .hljs-literal,
+[data-theme="oceanic-light"] .hljs-keyword,
+[data-theme="oceanic-light"] .hljs-selector-tag,
+[data-theme="oceanic-light"] .hljs-literal {
+  color: #0891b2;
+  font-weight: 500;
+}
+
+.oceanic-light .hljs-string,
+.oceanic-light .hljs-title,
+.oceanic-light .hljs-name,
+.oceanic-light .hljs-type,
+[data-theme="oceanic-light"] .hljs-string,
+[data-theme="oceanic-light"] .hljs-title,
+[data-theme="oceanic-light"] .hljs-name,
+[data-theme="oceanic-light"] .hljs-type {
+  color: #0d9488;
+}
+
+.oceanic-light .hljs-number,
+.oceanic-light .hljs-regexp,
+[data-theme="oceanic-light"] .hljs-number,
+[data-theme="oceanic-light"] .hljs-regexp {
+  color: #0369a1;
+}
+
+.oceanic-light .hljs-built_in,
+.oceanic-light .hljs-builtin-name,
+[data-theme="oceanic-light"] .hljs-built_in,
+[data-theme="oceanic-light"] .hljs-builtin-name {
+  color: #7c3aed;
+}
+
+/* Oceanic Dark syntax colors */
+.oceanic-dark .hljs,
+[data-theme="oceanic-dark"] .hljs {
+  color: #e0f2fe;
+}
+
+.oceanic-dark .hljs-comment,
+.oceanic-dark .hljs-quote,
+[data-theme="oceanic-dark"] .hljs-comment,
+[data-theme="oceanic-dark"] .hljs-quote {
+  color: #64748b;
+  font-style: italic;
+}
+
+.oceanic-dark .hljs-keyword,
+.oceanic-dark .hljs-selector-tag,
+.oceanic-dark .hljs-literal,
+[data-theme="oceanic-dark"] .hljs-keyword,
+[data-theme="oceanic-dark"] .hljs-selector-tag,
+[data-theme="oceanic-dark"] .hljs-literal {
+  color: #22d3ee;
+  font-weight: 500;
+}
+
+.oceanic-dark .hljs-string,
+.oceanic-dark .hljs-title,
+.oceanic-dark .hljs-name,
+.oceanic-dark .hljs-type,
+[data-theme="oceanic-dark"] .hljs-string,
+[data-theme="oceanic-dark"] .hljs-title,
+[data-theme="oceanic-dark"] .hljs-name,
+[data-theme="oceanic-dark"] .hljs-type {
+  color: #2dd4bf;
+}
+
+.oceanic-dark .hljs-number,
+.oceanic-dark .hljs-regexp,
+[data-theme="oceanic-dark"] .hljs-number,
+[data-theme="oceanic-dark"] .hljs-regexp {
+  color: #38bdf8;
+}
+
+.oceanic-dark .hljs-built_in,
+.oceanic-dark .hljs-builtin-name,
+[data-theme="oceanic-dark"] .hljs-built_in,
+[data-theme="oceanic-dark"] .hljs-builtin-name {
+  color: #a78bfa;
+}

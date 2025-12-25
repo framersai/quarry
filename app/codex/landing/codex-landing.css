@@ -1,0 +1,186 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   CODEX LANDING PAGE — ADAPTIVE GLASS INTERFACE
+   Premium holographic command center aesthetic with light/dark mode support
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.codex-landing {
+  /* Timing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* The Emerald — Primary Luminescence (same in both modes) */
+  --emerald-dark: hsl(160, 85%, 15%);
+  --emerald-core: hsl(160, 84%, 39%);
+  --emerald-bright: hsl(160, 90%, 45%);
+  --emerald-glow: hsl(160, 100%, 50%);
+
+  /* The Cyan — Secondary Luminescence (same in both modes) */
+  --cyan-dark: hsl(173, 80%, 20%);
+  --cyan-core: hsl(173, 80%, 40%);
+  --cyan-bright: hsl(180, 85%, 45%);
+  --cyan-glow: hsl(185, 100%, 55%);
+
+  /* Holographic Spectrum */
+  --holo-violet: hsl(270, 70%, 60%);
+  --holo-rose: hsl(330, 70%, 60%);
+  --holo-amber: hsl(38, 92%, 50%);
+
+  /* LIGHT MODE DEFAULTS */
+  --void-pure: hsl(60, 10%, 96%);
+  --void-deep: hsl(60, 8%, 94%);
+  --void-medium: hsl(60, 6%, 92%);
+  --void-soft: hsl(60, 4%, 88%);
+  --glass-bg: hsla(60, 10%, 98%, 0.85);
+  --glass-border: hsla(160, 60%, 35%, 0.2);
+  --glass-border-bright: hsla(160, 60%, 40%, 0.35);
+  --text-primary: hsl(220, 25%, 15%);
+  --text-secondary: hsl(220, 15%, 35%);
+  --text-muted: hsl(220, 10%, 50%);
+
+  background: var(--void-pure);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* DARK MODE */
+:is(.dark, [data-theme="dark"], [data-theme="sepia-dark"]) .codex-landing {
+  --void-pure: hsl(220, 25%, 3%);
+  --void-deep: hsl(220, 22%, 5%);
+  --void-medium: hsl(220, 20%, 8%);
+  --void-soft: hsl(220, 18%, 12%);
+  --glass-bg: hsla(220, 25%, 8%, 0.85);
+  --glass-border: hsla(160, 60%, 40%, 0.15);
+  --glass-border-bright: hsla(160, 60%, 50%, 0.25);
+  --text-primary: hsl(220, 15%, 95%);
+  --text-secondary: hsl(220, 15%, 70%);
+  --text-muted: hsl(220, 15%, 50%);
+  --emerald-bright: hsl(160, 90%, 55%);
+  --cyan-bright: hsl(180, 85%, 55%);
+}
+
+/* Neumorphic Card */
+.neo-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow:
+    12px 12px 40px hsla(220, 30%, 0%, 0.4),
+    -6px -6px 20px hsla(160, 50%, 30%, 0.02),
+    inset 0 0 0 1px hsla(160, 60%, 40%, 0.08);
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.neo-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--glass-border-bright);
+  box-shadow:
+    16px 16px 50px hsla(220, 30%, 0%, 0.5),
+    0 0 30px hsla(160, 100%, 50%, 0.08);
+}
+
+/* Buttons */
+.neo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 12px;
+  font-weight: 600;
+  background: linear-gradient(135deg, hsla(160, 80%, 35%, 0.9), hsla(170, 75%, 40%, 0.9));
+  color: var(--void-pure);
+  border: none;
+  box-shadow: 6px 6px 20px hsla(220, 30%, 0%, 0.4);
+  transition: all 0.2s var(--ease-out-expo);
+  cursor: pointer;
+}
+
+.neo-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px hsla(160, 100%, 50%, 0.25);
+}
+
+.neo-button-secondary {
+  background: var(--glass-bg);
+  color: var(--emerald-bright);
+  border: 1px solid var(--glass-border-bright);
+}
+
+/* Glass Panel */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+}
+
+/* Text Glow */
+.text-glow {
+  text-shadow: 0 0 20px hsla(160, 100%, 50%, 0.3);
+}
+
+/* Terminal */
+.terminal-window {
+  background: var(--void-pure);
+  border: 1px solid hsla(160, 60%, 30%, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: hsla(220, 25%, 10%, 0.95);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid hsla(160, 60%, 30%, 0.2);
+}
+
+.terminal-body {
+  padding: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  color: var(--emerald-bright);
+}
+
+/* Comparison */
+.comparison-full { background: var(--emerald-core); box-shadow: 0 0 12px hsla(160, 100%, 50%, 0.4); }
+.comparison-partial { background: linear-gradient(135deg, var(--emerald-core) 50%, var(--void-soft) 50%); }
+.comparison-none { background: var(--void-soft); border: 2px solid hsla(220, 20%, 25%, 0.5); }
+
+/* Animations */
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes pulse-glow { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.6; } }
+@keyframes scroll-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+.scroll-indicator { animation: scroll-bounce 2s ease-in-out infinite; }
+.animate-fade-in-up { 
+  animation: fade-in-up 0.6s var(--ease-out-expo) both;
+  opacity: 0;
+}
+.animate-fade-in { 
+  animation: fade-in 0.6s var(--ease-out-expo) both;
+  opacity: 0;
+}
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .codex-landing * { animation: none !important; transition-duration: 0.01ms !important; }
+}
