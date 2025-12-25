@@ -1,6 +1,8 @@
-# Quarry
+<p align="center">
+  <img src="public/quarry-logo-mono-light.svg" alt="Quarry" width="240" />
+</p>
 
-**Notes That Organize Themselves**
+<h3 align="center">Notes That Organize Themselves</h3>
 
 Quarry is a free and open-source personal knowledge management (PKM) system. It's a next-generation note-taking and knowledge base tool that helps you capture, organize, and discover connections in your ideas.
 
